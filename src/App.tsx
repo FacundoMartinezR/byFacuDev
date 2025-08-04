@@ -6,6 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./com
 import { Badge } from "./components/ui/badge"
 import { Input } from "./components/ui/input"
 import { Textarea } from "./components/ui/textarea"
+import { useForm, ValidationError } from '@formspree/react';
 import {
   Github,
   Linkedin,
@@ -27,6 +28,7 @@ import TextType from "./components/TextType"
 import LogoNavbar from "./assets/logo_navbar.png"
 import PersonajeHero from "./assets/personaje_hero.png"
 import FadeContent from "./components/FadeContent"
+
 
 export default function Portfolio() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -59,7 +61,7 @@ export default function Portfolio() {
     const element = document.getElementById(sectionId)
     if (element) {
       element.scrollIntoView({ behavior: "smooth" })
-    }
+    } 
     setIsMenuOpen(false)
   }
 
@@ -111,6 +113,8 @@ export default function Portfolio() {
       inProgress: true,
     },
   ]
+
+  const [state, handleSubmit] = useForm("meozreww")
 
   return (
     <div className="min-h-screen">
@@ -402,47 +406,96 @@ export default function Portfolio() {
       {/* Contact Section */}
       <section id="contact" className="py-20 bg-black">
         <div className="container mx-auto px-4">
-          <h2 className="text-5xl font-extrabold text-purple-400 mb-4 text-center uppercase">Contact</h2>
+          <h2 className="text-5xl font-extrabold text-purple-400 mb-4 text-center uppercase">
+            Contact
+          </h2>
           <div className="w-18 h-1 bg-purple-400 mx-auto mb-8" />
+
           <div className="max-w-2xl mx-auto">
             <Card className="bg-white/5 border-white/10">
               <CardContent className="p-8">
-                <form className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-6">
+                {state.succeeded ? (
+                  /* AQUÍ: el mensaje que quieres ver tras enviar */
+                  <p className="text-white text-center text-xl">
+                    Thanks for your message! I'll get back to you soon. 🙌
+                  </p>
+                ) : (
+                  /* Y si no ha enviado: el formulario */
+                  <form className="space-y-6" onSubmit={handleSubmit}>
+                    {/* ...todos tus campos con name + ValidationError */}
+                    {/* Nombre */}
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div>
+                        <label htmlFor="name" className="text-white mb-2 block">
+                          Name
+                        </label>
+                        <Input
+                          id="name"
+                          name="name"
+                          required
+                          className="bg-white/10 border-white/20 text-white placeholder:text-white/50"
+                          placeholder="Your name"
+                        />
+                        <ValidationError
+                          prefix="Name"
+                          field="name"
+                          errors={state.errors}
+                        />
+                      </div>
+                      {/* Email */}
+                      <div>
+                        <label htmlFor="email" className="text-white mb-2 block">
+                          Email
+                        </label>
+                        <Input
+                          id="email"
+                          type="email"
+                          name="email"
+                          required
+                          className="bg-white/10 border-white/20 text-white placeholder:text-white/50"
+                          placeholder="your@email.com"
+                        />
+                        <ValidationError
+                          prefix="Email"
+                          field="email"
+                          errors={state.errors}
+                        />
+                      </div>
+                    </div>
+                    {/* Mensaje */}
                     <div>
-                      <label className="text-white mb-2 block">Name</label>
-                      <Input
-                        className="bg-white/10 border-white/20 text-white placeholder:text-white/50"
-                        placeholder="Your name"
+                      <label htmlFor="message" className="text-white mb-2 block">
+                        Message
+                      </label>
+                      <Textarea
+                        id="message"
+                        name="message"
+                        required
+                        className="bg-white/10 border-white/20 text-white placeholder:text-white/50 min-h-32"
+                        placeholder="Tell me about your project..."
+                      />
+                      <ValidationError
+                        prefix="Message"
+                        field="message"
+                        errors={state.errors}
                       />
                     </div>
-                    <div>
-                      <label className="text-white mb-2 block">Email</label>
-                      <Input
-                        type="email"
-                        className="bg-white/10 border-white/20 text-white placeholder:text-white/50"
-                        placeholder="your@email.com"
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <label className="text-white mb-2 block">Message</label>
-                    <Textarea
-                      className="bg-white/10 border-white/20 text-white placeholder:text-white/50 min-h-32"
-                      placeholder="Tell me about your project..."
-                    />
-                  </div>
-                  <Button className="w-full bg-purple-600 hover:bg-purple-700 text-white">
-                    <Send className="mr-2" size={16} />
-                    Send Message
-                  </Button>
-                </form>
+                    {/* Botón */}
+                    <Button
+                      type="submit"
+                      disabled={state.submitting}
+                      className="w-full bg-purple-600 hover:bg-purple-700 text-white flex items-center justify-center"
+                    >
+                      <Send className="mr-2" size={16} />
+                      {state.submitting ? "Sending…" : "Send Message"}
+                    </Button>
+                  </form>
+                )}
               </CardContent>
             </Card>
           </div>
         </div>
       </section>
-
       {/* Footer */}
       <footer className="py-8 bg-black border-t border-white/10">
         <div className="container mx-auto px-4 text-center">
