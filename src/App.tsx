@@ -7,6 +7,8 @@ import { Badge } from "./components/ui/badge"
 import { Input } from "./components/ui/input"
 import { Textarea } from "./components/ui/textarea"
 import { useForm, ValidationError } from '@formspree/react';
+import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/next"
 import {
   Github,
   Linkedin,
@@ -119,6 +121,8 @@ export default function Portfolio() {
 
   return (
     <div className="min-h-screen">
+      <SpeedInsights />
+      <Analytics />
       {/* Navigation Mejorada */}
       <nav 
         className={`fixed top-5 left-1/2 transform -translate-x-1/2 z-50 bg-white/10 backdrop-blur-md border border-white/30 ${
