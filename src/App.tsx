@@ -10,6 +10,7 @@ import { useForm, ValidationError } from '@formspree/react';
 import {
   Github,
   Linkedin,
+  Instagram,
   ExternalLink,
   Code,
   Palette,
@@ -192,7 +193,7 @@ export default function Portfolio() {
       </nav>
       
 {/* Hero Section */}
-<section id="hero" className="min-h-[90vh] sm:min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+<section id="hero" className="h-screen flex items-center justify-center relative overflow-hidden pt-20">
   {/* DarkVeil Background */}
   <div className="absolute inset-0">
     <DarkVeil speed={1.3} hueShift={0} />
@@ -201,8 +202,8 @@ export default function Portfolio() {
   <div className="container mx-auto px-4 relative z-10">
     <div className="grid lg:grid-cols-2 gap-8 items-center">
       {/* Left Column - Text Content */}
-      <div className="pt-10 lg:pt-20 order-2 lg:order-1">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 lg:mb-6">
+      <div className="pt-2 max-md:pb-20 lg:pt-20 order-2 lg:order-1">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 lg:mb-6">
           <TextType
             text={["Hi! I'm Facundo", "Full Stack Developer"]}
             typingSpeed={75}
@@ -211,7 +212,7 @@ export default function Portfolio() {
             cursorCharacter="|"
           />
         </h1>
-        <p className="text-lg md:text-xl lg:text-2xl text-white/80 mb-6 lg:mb-8 max-w-2xl leading-relaxed">
+        <p className="text-lg md:text-xl max-md:pt-2 lg:text-2xl text-white/80 mb-6 lg:mb-8 max-w-2xl leading-relaxed">
           <BlurText
             text="+2 Years experience specializing in crafting exceptional web experiences with modern technologies and innovative design."
             delay={50}
@@ -219,10 +220,10 @@ export default function Portfolio() {
             direction="bottom"
           />
         </p>
-        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-start mb-8 lg:mb-12">
+        <div className="flex flex-col max-md:pt-2 sm:flex-row gap-3 sm:gap-4 justify-start mb-8 lg:mb-12">
           <Button
             size="lg"
-            className="bg-purple-600 hover:bg-purple-700 text-white px-6 sm:px-8 py-2 sm:py-3 text-base sm:text-lg"
+            className="bg-[#1b17ff] hover:bg-[#1b17ff]/70 text-white px-6 sm:px-8 py-2 sm:py-3 text-base sm:text-lg"
             onClick={() => scrollToSection('projects')}
           >
             Projects
@@ -243,16 +244,19 @@ export default function Portfolio() {
           <a href="https://www.linkedin.com/in/facundo-mart%C3%ADnez-7050561aa/" target="_blank" className="text-white/60 hover:text-white transition-colors">
             <Linkedin size={20} className="w-5 h-5 sm:w-6 sm:h-6" />
           </a>
+          <a href="https://www.instagram.com/byfacudev/" target="_blank" className="text-white/60 hover:text-white transition-colors">
+            <Instagram size={20} className="w-5 h-5 sm:w-6 sm:h-6" />
+          </a>
         </div>
       </div>
 
       {/* Right Column - Character Image */}
-      <div className="order-2 lg:order-1 flex justify-center lg:justify-end animate-in fade-in slide-in-from-right duration-1000 delay-300 lg:bottom-0">
-        <div className="w-full max-w-md lg:max-w-none flex items-center justify-center">
+      <div className="order-2 lg:order-1 max-lg:hidden flex justify-end items-end animate-in fade-in slide-in-from-right duration-1000 delay-300 bottom-0">
+        <div className="w-full max-w-md lg:max-w-none flex items-end justify-end bottom-0">
           <img
             src={PersonajeHero}
             alt="Character" 
-            className="w-full h-auto max-h-[50vh] lg:max-h-[70vh] object-contain animate-float"
+            className="bottom-0 h-auto w-auto object-contain animate-float"
           />
         </div>
       </div>
@@ -271,10 +275,10 @@ export default function Portfolio() {
       <section id="about" className="py-20 bg-black backdrop-blur-md">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-5xl font-extrabold text-purple-400 mb-4 text-center uppercase">About Me</h2>
-            <div className="w-18 h-1 bg-purple-400 mx-auto mb-8" />
+            <h2 className="text-5xl font-extrabold text-white mb-4 text-center uppercase">About Me</h2>
+            <div className="w-18 h-1 bg-[#4845f6] mx-auto mb-8" />
             <div className="grid md:grid-cols-2 gap-12 items-center">
-                <div className="w-80 h-80 mx-auto bg-gradient-to-br from-purple-500 to-pink-500 rounded-full p-1">
+                <div className="w-80 h-80 mx-auto bg-gradient-to-br from-[#4845f6] to-[#1b17ff] rounded-full p-1">
                   <img
                     src="/placeholder.svg?height=320&width=320"
                     alt="Profile"
@@ -300,19 +304,19 @@ export default function Portfolio() {
                 </p>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="flex items-center space-x-3">
-                    <Code className="text-purple-400" size={20} />
+                    <Code className="text-[#4845f6]" size={20} />
                     <span className="text-white">Clean Code</span>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <Palette className="text-purple-400" size={20} />
+                    <Palette className="text-[#4845f6]" size={20} />
                     <span className="text-white">UI/UX Design</span>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <Smartphone className="text-purple-400" size={20} />
+                    <Smartphone className="text-[#4845f6]" size={20} />
                     <span className="text-white">Responsive</span>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <ExternalLink className="text-purple-400" size={20} />
+                    <ExternalLink className="text-[#4845f6]" size={20} />
                     <span className="text-white">Performance</span>
                   </div>
                 </div>
@@ -325,8 +329,8 @@ export default function Portfolio() {
       {/* Skills Section */}
       <section id="skills" className="py-20 bg-black">
         <div className="container mx-auto px-4">
-          <h2 className="text-5xl font-extrabold text-purple-400 mb-4 text-center uppercase">Skills</h2>
-          <div className="w-18 h-1 bg-purple-400 mx-auto mb-8" />
+          <h2 className="text-5xl font-extrabold text-white mb-4 text-center uppercase">Skills</h2>
+          <div className="w-18 h-1 bg-[#4845f6] mx-auto mb-8" />
           <div className="max-w-4xl mx-auto">
             <div className="grid md:grid-cols-2 gap-8">
               {skills.map((skill, index) => (
@@ -337,11 +341,11 @@ export default function Portfolio() {
                 >
                   <div className="flex justify-between items-center mb-2">
                     <span className="text-white font-medium">{skill.name}</span>
-                    <span className="text-purple-400">{skill.level}%</span>
+                    <span className="text-[#4845f6]">{skill.level}%</span>
                   </div>
                   <div className="w-full bg-white/10 rounded-full h-3">
                     <div
-                      className="bg-gradient-to-r from-purple-500 to-pink-500 h-3 rounded-full transition-all duration-1000 ease-out"
+                      className="bg-gradient-to-r from-[#4845f6] to-[#1b17ff] h-3 rounded-full transition-all duration-1000 ease-out"
                       style={{ width: `${skill.level}%` }}
                     ></div>
                   </div>
@@ -355,8 +359,8 @@ export default function Portfolio() {
       {/* Projects Section */}
       <section id="projects" className="py-20 bg-black">
         <div className="container mx-auto px-4">
-          <h2 className="text-5xl font-extrabold text-purple-400 mb-4 text-center uppercase">Projects</h2>
-          <div className="w-18 h-1 bg-purple-400 mx-auto mb-8" />
+          <h2 className="text-5xl font-extrabold text-white mb-4 text-center uppercase">Projects</h2>
+          <div className="w-18 h-1 bg-[#4845f6] mx-auto mb-8" />
           <FadeContent blur={true} duration={1500} easing="ease-out" initialOpacity={0}>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {projects.map((project, index) => (
@@ -382,7 +386,7 @@ export default function Portfolio() {
                   <CardDescription className="text-white/70 mb-4">{project.description}</CardDescription>
                   <div className="flex flex-wrap gap-2 mb-4 items-end">
                     {project.tech.map((tech) => (
-                      <Badge key={tech} variant="secondary" className="bg-purple-600/20 text-purple-300">
+                      <Badge key={tech} variant="secondary" className="bg-[#1b17ff]/20 text-white/80">
                         {tech}
                       </Badge>
                     ))}
@@ -406,10 +410,10 @@ export default function Portfolio() {
       {/* Contact Section */}
       <section id="contact" className="py-20 bg-black">
         <div className="container mx-auto px-4">
-          <h2 className="text-5xl font-extrabold text-purple-400 mb-4 text-center uppercase">
+          <h2 className="text-5xl font-extrabold text-white mb-4 text-center uppercase">
             Contact
           </h2>
-          <div className="w-18 h-1 bg-purple-400 mx-auto mb-8" />
+          <div className="w-18 h-1 bg-[#4845f6] mx-auto mb-8" />
 
           <div className="max-w-2xl mx-auto">
             <Card className="bg-white/5 border-white/10">
@@ -484,7 +488,7 @@ export default function Portfolio() {
                     <Button
                       type="submit"
                       disabled={state.submitting}
-                      className="w-full bg-purple-600 hover:bg-purple-700 text-white flex items-center justify-center"
+                      className="w-full bg-[#1b17ff] hover:bg-[#1b17ff]/70 text-white flex items-center justify-center"
                     >
                       <Send className="mr-2" size={16} />
                       {state.submitting ? "Sending…" : "Send Message"}
