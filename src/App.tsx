@@ -193,7 +193,7 @@ export default function Portfolio() {
       </nav>
       
 {/* Hero Section */}
-<section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+<section id="hero" className="h-screen flex items-center justify-center relative overflow-hidden pt-10">
   {/* DarkVeil Background */}
   <div className="absolute inset-0">
     <DarkVeil speed={1.3} hueShift={0} />
