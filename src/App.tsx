@@ -193,7 +193,7 @@ export default function Portfolio() {
       </nav>
       
 {/* Hero Section */}
-<section id="hero" className="h-screen flex items-center justify-center relative overflow-hidden pt-20">
+<section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
   {/* DarkVeil Background */}
   <div className="absolute inset-0">
     <DarkVeil speed={1.3} hueShift={0} />
@@ -203,7 +203,7 @@ export default function Portfolio() {
     <div className="grid lg:grid-cols-2 gap-8 items-center">
       {/* Left Column - Text Content */}
       <div className="pt-2 max-md:pb-20 lg:pt-20 order-2 lg:order-1">
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 lg:mb-6">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 lg:mb-6">
           <TextType
             text={["Hi! I'm Facundo", "Full Stack Developer"]}
             typingSpeed={75}
