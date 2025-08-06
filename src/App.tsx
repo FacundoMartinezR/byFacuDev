@@ -30,6 +30,7 @@ import BlurText from "./components/BlurText"
 import TextType from "./components/TextType"
 import LogoNavbar from "./assets/logo_navbar.png"
 import PersonajeHero from "./assets/personaje_hero.png"
+import Profile from "./assets/profile.png"
 import FadeContent from "./components/FadeContent"
 
 
@@ -282,9 +283,9 @@ export default function Portfolio() {
             <h2 className="text-5xl font-extrabold text-white mb-4 text-center uppercase">About Me</h2>
             <div className="w-18 h-1 bg-[#4845f6] mx-auto mb-8" />
             <div className="grid md:grid-cols-2 gap-12 items-center">
-                <div className="w-80 h-80 mx-auto bg-gradient-to-br from-[#4845f6] to-[#1b17ff] rounded-full p-1">
+                <div className="w-80 h-80 mx-auto rounded-full p-1">
                   <img
-                    src="/placeholder.svg?height=320&width=320"
+                    src={Profile}
                     alt="Profile"
                     className="w-full h-full rounded-full object-cover"
                   />
@@ -300,7 +301,7 @@ export default function Portfolio() {
                 </p>
                 <p className="text-white text-lg mb-8 leading-relaxed">
                   <BlurText
-                    text="My focus is on writing clean code, creating intuitive interfaces, and optimizing performanceto deliver the best possible user experience."
+                    text="My focus is on writing clean code, creating intuitive interfaces, and optimizing performance to deliver the best possible user experience. Always eager to take on new challenges and bring ideas to life through code."
                     delay={25}
                     animateBy="words"
                     direction="bottom"
@@ -345,7 +346,7 @@ export default function Portfolio() {
                 >
                   <div className="flex justify-between items-center mb-2">
                     <span className="text-white font-medium">{skill.name}</span>
-                    <span className="text-[#4845f6]">{skill.level}%</span>
+                    <span className="text-white">{skill.level}%</span>
                   </div>
                   <div className="w-full bg-white/10 rounded-full h-3">
                     <div
