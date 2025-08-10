@@ -32,7 +32,7 @@ import LogoNavbar from "./assets/logo_navbar.png"
 import PersonajeHero from "./assets/personaje_hero.png"
 import Profile from "./assets/profile.png"
 import FadeContent from "./components/FadeContent"
-import SkillsMarquee from "./components/skills-marquee"
+import SkillsMarquee from "./components/skills-marquee.tsx"
 
 
 export default function Portfolio() {
