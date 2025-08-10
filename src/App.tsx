@@ -32,6 +32,7 @@ import LogoNavbar from "./assets/logo_navbar.png"
 import PersonajeHero from "./assets/personaje_hero.png"
 import Profile from "./assets/profile.png"
 import FadeContent from "./components/FadeContent"
+import SkillsMarquee from "./components/skills-marquee"
 
 
 export default function Portfolio() {
@@ -82,12 +83,12 @@ export default function Portfolio() {
   }, [])
 
   const skills = [
-    { name: "React", level: 95 },
-    { name: "Next.js", level: 84 },
-    { name: "TypeScript", level: 72 },
-    { name: "Node.js", level: 89 },
-    { name: "Python", level: 39 },
-    { name: "MongoDB", level: 78 },
+    { name: "React", src: "/icons/react.svg" },
+    { name: "Next.js", src: "/icons/nextjs.svg" },
+    { name: "TypeScript", src: "/icons/typescript.svg" },
+    { name: "Node.js", src: "/icons/nodejs.svg" },
+    { name: "Python", src: "/icons/python.svg" },
+    { name: "MongoDB", src: "/icons/mongodb.svg" },
   ]
 
   const projects = [
@@ -239,7 +240,7 @@ export default function Portfolio() {
             className="border-white/30 text-white hover:bg-white/10 hover:text-white px-6 sm:px-8 py-2 sm:py-3 text-base sm:text-lg bg-transparent"
             onClick={() => scrollToSection('contact')}
           >
-            Talk me
+            Talk to me
           </Button>
         </div>
         <div className="flex space-x-4 sm:space-x-6">
@@ -332,31 +333,12 @@ export default function Portfolio() {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-20 bg-black">
+      <section id="skills" className="pt-20 pb-4 bg-black">
         <div className="container mx-auto px-4">
-          <h2 className="text-5xl font-extrabold text-white mb-4 text-center uppercase">Skills</h2>
-          <div className="w-18 h-1 bg-[#4845f6] mx-auto mb-8" />
-          <div className="max-w-4xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-8">
-              {skills.map((skill, index) => (
-                <div
-                  key={skill.name}
-                  className="animate-in fade-in slide-in-from-bottom duration-1000"
-                  style={{ animationDelay: `${index * 100}ms` }}
-                >
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="text-white font-medium">{skill.name}</span>
-                    <span className="text-white">{skill.level}%</span>
-                  </div>
-                  <div className="w-full bg-white/10 rounded-full h-3">
-                    <div
-                      className="bg-gradient-to-r from-[#4845f6] to-[#1b17ff] h-3 rounded-full transition-all duration-1000 ease-out"
-                      style={{ width: `${skill.level}%` }}
-                    ></div>
-                  </div>
-                </div>
-              ))}
-            </div>
+          <h2 className="text-5xl font-extrabold text-white mb-4 text-center uppercase">{"Skills"}</h2>
+          <div className="w-18 h-1 bg-[#4845f6] mx-auto mb-14" />
+          <div className="max-w-6xl mx-auto">
+            <SkillsMarquee items={skills} direction="left" speed="normal" />
           </div>
         </div>
       </section>
