@@ -23,9 +23,9 @@ import {
   Send,
 } from "lucide-react"
 import DarkVeil from "./components/DarkVeil"
-import Barbershop from "./assets/projects/Barbershop.png"
 import Seoul from "./assets/projects/Seoul.png"
 import BarberMentor from "./assets/projects/BarberMentor.png"
+import SaasImage from "./assets/projects/Saas.jpg"
 import BlurText from "./components/BlurText"
 import TextType from "./components/TextType"
 import LogoNavbar from "./assets/logo_navbar.png"
@@ -93,12 +93,13 @@ export default function Portfolio() {
 
   const projects = [
     {
-      title: "Barber Landing Page",
-      description: "Basic template structure for a barbershop: general information and booking. React and Tailwind CSS.",
-      image: Barbershop,
-      tech: ["React", "Tailwind CSS", "Vite"],
-      github: "https://github.com/FacundoMartinezR/barber",
-      demo: "https://barberluxuryproject.vercel.app/",
+      title: "SaaS Finder Micro Influencers",
+      description: "A platform to connect brands with micro-influencers for targeted marketing.",
+      image: SaasImage,
+      tech: ["React", "Node.js", "Paypal", "Oauth"],
+      github: "#",
+      demo: "https://tik-tok-finder.vercel.app/",
+      inProgress: true,
     },
     {
       title: "Parallax Zoom Effect",
